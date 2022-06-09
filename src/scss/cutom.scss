@@ -1,0 +1,61 @@
+.btn-edit-size{
+     width: 60px;
+     &:hover{
+        background-color: white;
+        color: blue;
+     }
+}
+.btn-delete-size{
+    width: 60px;
+    &:hover{
+        background-color: white;
+        color: red;
+    }
+}
+.mgl-10{
+    margin-left: 10px;
+}
+.display-flex-between{
+    display: flex;
+    justify-content: space-around;
+}
+.display-flex-center{
+    display: flex;
+    justify-content:center;
+}
+.display-flex-start{
+    display: flex;
+    justify-content:flex-start;
+}
+.margin-10{
+    
+    margin: 10px;
+
+
+}
+.hover-red{
+    &:hover{
+        background-color: red;
+    }
+}
+.margin-t10{
+    margin-top: 10px;
+}
+.close{
+    background-color: #0071ba;
+    border: none;
+    outline: none;
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+.margin-l10{
+    margin-left: 10px;
+}
+.btn-modal{
+ width: 100px;
+ &:hover{
+   background-color: white;
+   color: #0071ba;
+ }
+}

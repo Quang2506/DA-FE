@@ -9,15 +9,7 @@
         "refresh": "Refresh",
         "accept": "Chấp nhận",
         "confirm": "Xác nhận",
-        "confirm-this-task": "Bạn có chắc chắn thực hiện tác vụ này?",
-        "fail-to-load-data": "Không thể tải về dữ liệu",
-        "unknown-error": "Có lỗi xảy ra",
-        "internal-server-error": "Lỗi kết nối",
-        "bad-request": "Yêu cầu không hợp lệ",
-        "forbiden-request": "Thông tin truyền vào không hợp lệ",
-        "fail-to-load-all-code": "Không thể tải về dữ liệu allcode",
-        "sum": "Tổng",
-        "date-range-invalid": "Khoảng thời gian không hợp lệ"
+        "shearch" : "Tìm Kiếm"
     },
     "login": {
         "login": "Đăng nhập",
@@ -116,5 +108,17 @@
             "remove-assign-fail": "Bỏ gán gói dịch vụ cho khách hàng thất bại",
             "sure-delete-assign": "Bạn có chắc chắn muốn bỏ gán gói dịch vụ cho khách hàng?"
         }
+    },
+    "homeheader":{
+        "speciality": "Chuyên Khoa",
+        "health-facilities":"Cơ Sở Y Tế",
+        "Doctor"    :"Bác Sĩ",
+        "Examination-package":"Gói Khám",
+        "Support":"Hỗ Trợ",
+        "Medical-Platform":"Nền Tảng Y Tế",
+        "Comprehensive-Health-Care":"Chăm Sóc Sức Khỏe toàn diện",
+        "Examination-Specialist":"Khám Chuyên Khoa",
+        "examination" :"Khám",
+        "specialist":"Chuyên Khoa"
     }
 }

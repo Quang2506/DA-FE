@@ -1,99 +1,155 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { push } from "connected-react-router";
+// import * as actions from "../store/actions";
 import * as actions from "../../store/actions";
+import '../../scss/Login.scss';
 //import { FormattedMessage } from 'react-intl';
-import "./Login.css";
-import { Button } from "reactstrap";
-import HandleLoginApi from "../../services/user_services";
+// import { userService } from '../../services/userService';
+import  {HandleLoginApi}  from '../../services/user_services';
 
-const Login=()=> {
 
-const [usename,setUsename]= useState('')
-const [password,setPassword]=useState('')
-const [isShowpass,setIsShowpass]= useState(true)
-  
-  const   handleOnChangeInputUserName = (e)=>{
-        setUsename(e.target.value)
-   }
-  const handleOnChangeInputPassWork=(e)=>{
-    
-        setPassword(e.target.value)
-    
-   }
-   const handleLogin=async()=>{
-     try{
-      const data = await HandleLoginApi(usename , password)
-      console.log('email :',usename)
-      console.log('pass :',password)
-       console.log(data)
-     }catch(e){
-       console.log(e)
-     }
-       
-   }
-   const handleShowPass=()=>{
-       
-          setIsShowpass(!isShowpass)  
-       
-   }
-  
-    return (
-      <div className="login_container">
-        <div className="login_container-body row">
-          <div className="col-12 login_container-header">Login</div>
-          <div className="col-12 form-group">
-            <label>UserName</label>
-            <input 
-            type="text"
-             className="form-control" 
-             placeholder="Enter your UserName"
-            //  value={this.state.usename}
-             onChange={
-                 (e)=>handleOnChangeInputUserName(e)
-             }
-             />
-          </div>
-          <div className="col-12 form-group">
-            <label>PassWord</label>
-            <div className="custom-passWork">
-            <input type={isShowpass?"password":"text"} 
-            className="form-control"
-             placeholder="Enter your PassWord" 
-             onChange={e=>handleOnChangeInputPassWork(e)}
-             />
-             <span  onClick={()=>handleShowPass()}> {isShowpass?<i className="eye-pass fas fa-eye"></i>:<i className="eye-pass fas fa-eye-slash"></i>}</span>
-             </div>
-          </div>
-          <Button className="col-12 btn-login" onClick={()=>handleLogin()}>Login</Button>
-          <div className="col-12">
-              <span>Forgot your PassWord ?</span>
-              </div>
-              
-              <div className="col-12 socail-login">
-        <i className="google-icon-login fab fa-google-plus-g"></i>
-        <i className="facebook-icon-login fab fa-facebook"></i>
-        </div>
-        </div>
-       
-      </div>
-    );
-  
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            showPassword: false,
+            errMessage: ''
+        }
+    }
+
+    handleOnChangeUserName = (e) => {
+        this.setState({
+            username: e.target.value
+        })
+
+    }
+
+    handleOnChangePassword = (e) => {
+        this.setState({
+            password: e.target.value
+        })
+
+
+    }
+
+    handleLogin = async () => {
+        this.setState({
+            errMessage: ''
+        })
+        try {
+
+            let data = await HandleLoginApi(this.state.username, this.state.password);
+            
+            if (data && data.message==="ok") {
+                this.props.userLoginSuccess(data.user);
+                console.log('loging success');
+            }else {
+              this.setState({
+                  errMessage: data.message
+              })
+          }
+
+        } catch (e) {
+            if (e.response) {
+                if (e.response.data) {
+                    this.setState({
+                        errMessage: e.response.data.message
+                    })
+                }
+            }
+            console.log('error message', e.response);
+        }
+    }
+
+    handleShowHidePassword = () => {
+
+        this.setState({
+            showPassword: !this.state.showPassword
+        })
+        console.log(this.state.showPassword);
+    }
+
+
+    render() {
+
+
+
+        return (
+            <div className="login-background">
+                <div className="login-container">
+                    <div className="login-content row">
+                        <div className="col-12 text-center login-title">Login</div>
+                        <div className="col-12 form-group">
+                            <label>Username: </label>
+                            <input
+                                type="text"
+                                className="form-control login-input"
+                                placeholder="Enter your user name"
+                                value={this.state.username}
+                                onChange={(e) => this.handleOnChangeUserName(e)}
+
+                            />
+
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Password: </label>
+                            <div className="login-password">
+                                <input
+                                    type={this.state.showPassword ? 'text' : 'password'}
+                                    className="form-control login-input"
+                                    placeholder="Enter your password"
+                                    value={this.state.password}
+                                    onChange={(e) => this.handleOnChangePassword(e)}
+
+                                />
+                                <span onClick={() => this.handleShowHidePassword()}>
+                                    <i className={this.state.showPassword ? 'fas fa-eye show-password' : 'fas fa-eye-slash show-password'} ></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="col-12" style={{ color: 'red' }}>
+                            {this.state.errMessage}
+                        </div>
+                        <div className="col-12">
+                            <button
+                                className="btn-login"
+                                onClick={() => this.handleLogin()}
+                            >Login</button>
+                        </div>
+                        <div className="col-12">
+                            <span className="forgot-password">Forgot your password?</span>
+                        </div>
+                        <div className="col-12 text-center login-with mt-3">
+                            <span className="">Or login with:</span>
+                        </div>
+                        <div className="col-12 social-login">
+                            <i className="fab fa-facebook social-icon fb"></i>
+                            <i className="fab fa-google-plus social-icon gg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    lang: state.app.language,
-  };
+const mapStateToProps = state => {
+    return {
+        language: state.app.language
+    };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    navigate: (path) => dispatch(push(path)),
-    adminLoginSuccess: (adminInfo) =>
-      dispatch(actions.adminLoginSuccess(adminInfo)),
-    adminLoginFail: () => dispatch(actions.adminLoginFail()),
-  };
+const mapDispatchToProps = dispatch => {
+    return {
+        navigate: (path) => dispatch(push(path)),
+        // userLoginFail: () => dispatch(actions.adminLoginFail()),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo))
+    };
+
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
