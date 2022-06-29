@@ -1,18 +1,17 @@
-//import '../../scss/HomeHeader.scss'
-import React from 'react';
+import React from "react";
+import '../../../scss/medicalFacility.scss'
+
 //import { Redirect } from 'react-router-dom';
 //import { Input } from 'reactstrap';
 //import {FormattedMessage} from "react-intl"
-import { connect } from 'react-redux';
-import Img1 from '../../../assets/specialty_Img/120331-co-xuong-khop.jpg'
+//import { connect } from 'react-redux';
+import Img1 from '../../../assets/MedicalFacility/095119-benh-vien-cho-ray-h1.jpg'
 // import { languages } from '../../utils/constant';
 //import { changeLanguageApp } from '../../store/actions/appActions';
-
-import '../../../scss/Specialty.scss'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Specialty = ()=> {
+const MedicalFacility = ()=> {
 
     const settings = {
         dost : true,
@@ -26,37 +25,37 @@ const Specialty = ()=> {
     
 
         return (
-            <div className='specialty' >
-                   <div className='spencialty-title' style={{paddingTop:'30px',height:'30px',width:'80%',margin:'auto',display:'flex'}}>
-                    <h3>Chuyên khoa phổ biến</h3>
+            <div className='MedicalFacility' >
+                   <div className='MedicalFacility-title' style={{paddingTop:'30px',height:'30px',width:'80%',margin:'auto',display:'flex'}}>
+                    <h3>Cơ sở y tế nổi bật</h3>
                   
                 </div>
-               <div className='spencialty-conten'>
+               <div className='MedicalFacility-conten'>
               
             
-                  <Slider className='specialty-slider' {...settings}>
+                  <Slider className='MedicalFacility-slider' {...settings}>
                   
-                    <div className='specialty-img'>
+                    <div className='MedicalFacility-img'>
                     <img src={Img1}/>
                     <span>Cơ sương khớp</span>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='MedicalFacility-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='MedicalFacility-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='MedicalFacility-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='MedicalFacility-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'   >
+                    <div className='MedicalFacility-img'   >
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
@@ -71,17 +70,5 @@ const Specialty = ()=> {
 
 }
 
-const mapStateToProps = state => {
-    return {
-        isLoggedIn: state.user.isLoggedIn,
-        lang: state.app.language,
-    };
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        // changeLanguageAppRedux :(language) =>dispatch(changeLanguageApp(language))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default MedicalFacility

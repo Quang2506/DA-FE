@@ -1,0 +1,29 @@
+.container-content{
+    width: 70%;
+    margin-top: 30px;
+    label{
+        width: 20%;
+
+    }
+    .margin-left-30{
+        margin-left: 60px;
+    } 
+    h3{
+        color: blue;
+        text-align: center;
+    }
+    input{
+        width: 80%;
+        
+    }
+    button{
+        margin-top: 50px;
+        margin-left: 120px;
+    }
+    .display-flex-form{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+    }
+}

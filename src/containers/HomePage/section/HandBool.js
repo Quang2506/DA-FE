@@ -1,18 +1,17 @@
-//import '../../scss/HomeHeader.scss'
-import React from 'react';
+import React from "react";
+
 //import { Redirect } from 'react-router-dom';
 //import { Input } from 'reactstrap';
 //import {FormattedMessage} from "react-intl"
-import { connect } from 'react-redux';
-import Img1 from '../../../assets/specialty_Img/120331-co-xuong-khop.jpg'
+//import { connect } from 'react-redux';
+import Img1 from '../../../assets/HandBool/143055-boc-rang-su-gia-bao-nhieu.jpg'
 // import { languages } from '../../utils/constant';
 //import { changeLanguageApp } from '../../store/actions/appActions';
-
-import '../../../scss/Specialty.scss'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Specialty = ()=> {
+import '../../../scss/HandBool.scss'
+const HandBool = ()=> {
 
     const settings = {
         dost : true,
@@ -26,37 +25,36 @@ const Specialty = ()=> {
     
 
         return (
-            <div className='specialty' >
-                   <div className='spencialty-title' style={{paddingTop:'30px',height:'30px',width:'80%',margin:'auto',display:'flex'}}>
-                    <h3>Chuyên khoa phổ biến</h3>
+            <div className='HandBool' >
+                   <div className='HandBool-title' style={{paddingTop:'30px',height:'30px',width:'80%',margin:'auto',display:'flex'}}>
+                    <h3>Cẩm Nang</h3>
                   
                 </div>
-               <div className='spencialty-conten'>
+               <div className='HandBool-conten'>
               
             
-                  <Slider className='specialty-slider' {...settings}>
+                  <Slider className='HandBool-slider' {...settings}>
                   
-                    <div className='specialty-img'>
+                    <div className='HandBool-img'>
                     <img src={Img1}/>
                     <span>Cơ sương khớp</span>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='HandBool-img'>
+                    <h3><a href="#">Bọc Răng Sứ Bao Nhiêu Tiền?Giá Bọc Răng Sứ Tại TPHCM</a></h3>
+                    </div>
+                    <div className='HandBool-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='HandBool-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
+                    <div className='HandBool-img'>
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
-                    <div className='specialty-img'>
-                    <img src={Img1}/>
-                    <div>Cơ sương khớp</div>
-                    </div>
-                    <div className='specialty-img'   >
+                    <div className='HandBool-img'   >
                     <img src={Img1}/>
                     <div>Cơ sương khớp</div>
                     </div>
@@ -71,17 +69,5 @@ const Specialty = ()=> {
 
 }
 
-const mapStateToProps = state => {
-    return {
-        isLoggedIn: state.user.isLoggedIn,
-        lang: state.app.language,
-    };
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        // changeLanguageAppRedux :(language) =>dispatch(changeLanguageApp(language))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default HandBool

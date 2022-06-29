@@ -1,4 +1,4 @@
-import React, { useEffect,useState,useRef } from 'react';
+import React, { useEffect,useState} from 'react';
 //import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import '../../scss/UserManage.scss';

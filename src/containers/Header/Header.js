@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu } from './menuApp';
 import './Header.scss';
+const Header = (props)=> {
 
-class Header extends Component {
-
-    render() {
-        const { processLogout } = this.props;
+     
+        const { processLogout,userInfo } = props;
+       
 
         return (
             <div className="header-container">
@@ -17,20 +17,22 @@ class Header extends Component {
                 <div className="header-tabs-container">
                     <Navigator menus={adminMenu} />
                 </div>
-
+                {userInfo.firstName!==null&&userInfo.firstName!==""?<div className="i4-UserLogin"><span>{userInfo.firstName}</span></div>: <div className="i4-UserLogin"><span>Xin Chào</span></div>}
                 {/* nút logout */}
+                
                 <div className="btn btn-logout" onClick={processLogout}>
                     <i className="fas fa-sign-out-alt"></i>
                 </div>
             </div>
         );
-    }
+    
 
 }
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        userInfo:state.user.userInfo
     };
 };
 
