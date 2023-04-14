@@ -14,7 +14,7 @@ import Home from '../routes/Home';
 // import Login from '../routes/Login';
 import Login from './Auth/Login';
 import HomePage from './HomePage/HomePage';
-import Header from './Header/Header';
+//import Header from './Header/Header';
 import System from '../routes/System';
 import CustomScrollbars from '../components/CustomScrollbars';
 
@@ -22,23 +22,23 @@ import { CustomToastCloseButton } from '../components/CustomToast';
 
 class App extends Component {
 
-    handlePersistorState = () => {
-        const { persistor } = this.props;
-        let { bootstrapped } = persistor.getState();
-        if (bootstrapped) {
-            if (this.props.onBeforeLift) {
-                Promise.resolve(this.props.onBeforeLift())
-                    .then(() => this.setState({ bootstrapped: true }))
-                    .catch(() => this.setState({ bootstrapped: true }));
-            } else {
-                this.setState({ bootstrapped: true });
-            }
-        }
-    };
+    // handlePersistorState = () => {
+    //     const { persistor } = this.props;
+    //     let { bootstrapped } = persistor.getState();
+    //     if (bootstrapped) {
+    //         if (this.props.onBeforeLift) {
+    //             Promise.resolve(this.props.onBeforeLift())
+    //                 .then(() => this.setState({ bootstrapped: true }))
+    //                 .catch(() => this.setState({ bootstrapped: true }));
+    //         } else {
+    //             this.setState({ bootstrapped: true });
+    //         }
+    //     }
+    // };
 
-    componentDidMount() {
-        this.handlePersistorState();
-    }
+    // componentDidMount() {
+    //     this.handlePersistorState();
+    // }
 
     render() {
         return (

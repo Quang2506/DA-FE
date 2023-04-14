@@ -15,7 +15,7 @@ const CommentWeb = () =>{
                         title="video youtube"
                         frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                         allowfullscreen></iframe>
+                         allowFullScreen></iframe>
                         
                     </div>
                 </div>

@@ -6,8 +6,11 @@
 
     }
     .margin-left-30{
-        margin-left: 60px;
+        margin-left: 150px;
     } 
+    .margin-left-60{
+        margin-left: 180px;
+    }
     h3{
         color: blue;
         text-align: center;
@@ -25,5 +28,14 @@
         justify-content: space-around;
         align-items: center;
         margin-top: 20px;
+    }
+    .Avata-redux{
+        height: 100px;
+        margin-right: 400px;
+       
+    }
+    img{
+        width: auto;
+        height: 100%;
     }
 }

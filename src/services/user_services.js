@@ -6,10 +6,11 @@ return  axios.post('/api/login',{email:userEmail,passwork:userPasswork})
 }
 
 export const getAllUser = (idUser) =>{
+    
     return axios.get(`/api/user-login?id=${idUser}`)
 }
 export const createUser = (data)=>{
-    console.log('',data)
+    
     return axios.post(`/api/create-user`,data)
 }
 export const deleteUser = (idUser) =>{
@@ -21,4 +22,7 @@ export const deleteUser = (idUser) =>{
 }
 export const editUser = (data) =>{
     return axios.put("/api/edit-user",data)
+}
+export const getAllCodes = (type)=>{
+    return axios.get(`/allcode?type=${type}`)
 }

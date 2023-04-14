@@ -76,7 +76,7 @@ const UserManage = ()=> {
      }
    const editUserApi = async(data) =>{
        const res =await editUser(data)
-       console.log('aaâ',res.data.errCode)
+   
        if(res.data.errCode !==0){
         alert(res.message)
       }else{
