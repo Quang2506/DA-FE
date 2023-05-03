@@ -1,5 +1,5 @@
 import React from "react";
-import '../../../scss/medicalFacility.scss'
+import '../../../scss/Home/Section/medicalFacility.scss'
 
 //import { Redirect } from 'react-router-dom';
 //import { Input } from 'reactstrap';

@@ -1,5 +1,22 @@
 import actionTypes from './actionTypes';
-import {getAllCodes,createUser,getAllUser,deleteUser} from '../../services/user_services'
+import {
+    getAllCodes,
+    createUser,
+    getAllUser,
+    deleteUser,
+    editUser
+} from '../../services/user_services'
+
+import { 
+    getTopDoctor ,
+    getAllDoctor,
+    postInfDoctor,
+    getDoctorDetailById,
+    updateDetailMarkdownApi
+
+} from '../../services/doctor_services';
+
+
 
 
 
@@ -122,6 +139,8 @@ export const fetchAllUserStart = () =>{
         try{
           
             let res = await  getAllUser('ALL')
+            //let doctor = await getTopDoctor('1')
+           // console.log("topDocter",doctor)
             
           
             if(res){
@@ -152,6 +171,7 @@ export const deleteUserRedux = (data)=>{
                
                 if(res.data.errCode===0){
                     dispatch(fetchAllUserStart())
+                    
                   
                 }
             }catch(e){
@@ -163,5 +183,119 @@ export const deleteUserRedux = (data)=>{
 export const deleteUserSuccess = ()=>({
     type:actionTypes.DELETE_USER_SUCCESS,
     
+})
+export const updateUserRedux = (data)=>{
+    return async (dispatch,getState)=>{
+        try{
+            const res = await editUser(data)
+            
+            if(res&&res.data.errCode===0){
+                dispatch(fetchAllUserStart())
+                dispatch(updateUserSuccess())
+            
+            }
 
+        }catch(e){
+            console.log(e)
+        }
+    }
+} 
+export const updateUserSuccess = ()=>({
+    type:actionTypes.UPDATE_USER_SUCCESS
+})
+
+export const fetchTopDoctor = () =>{
+    return async(dispatch,getState)=>{
+        try{
+            let res = await getTopDoctor(10)
+            let data = res.data
+          
+            if(data&&res.errorCode===0){
+                dispatch(fetchTopDoctorSuccess(data))
+            
+            }else{
+                dispatch(fetchTopDoctorfaided())
+            }
+        }catch(e){
+            console.log(e)
+        }
+
+    }
+}
+export const fetchTopDoctorSuccess=(data)=>({
+    type:actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
+    data:data
+})
+export const fetchTopDoctorfaided=()=>({
+    type:actionTypes.FETCH_TOP_DOCTOR_FAIDED
+    
+})
+export const fetchAllDoctorStart =()=>{
+
+return async (dispatch,getState)=>{
+  
+    try{ 
+        let res=  await getAllDoctor()
+       if(res.resData.data){
+      
+        dispatch(fetchAllDoctorSuccess(res.resData.data))
+       }
+       //
+    }catch(e){
+console.log(e)
+    }
+}
+}
+export const fetchAllDoctorSuccess = (data)=>({
+    type:actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+    data:data
+})
+export const saveInfDoctor = (data)=>{
+    return async (dispatch,getState)=>{
+        try{
+           
+            let datares= await postInfDoctor(data)
+            return datares
+         
+           
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+
+export const getDetailDoctor = (id) =>{
+    return async (dispatch,getState)=>{
+        try{
+            let dataDoctor = await getDoctorDetailById(id)
+
+            if(dataDoctor){
+                
+                dispatch(getDataDetailDoctorSuccess(dataDoctor.data))
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+export const getDataDetailDoctorSuccess = (data) =>({
+    type:actionTypes.GET_DETAIL_DOCTOR_BY_ID,
+    data:data
+})
+export const updateDetailMarkdown = (data)=>{
+    return async (dispatch,getState)=>{
+        try{
+            let respons = await updateDetailMarkdownApi(data)
+            if(respons){
+                return respons
+          
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+export const UpdateDetailMarkdownSuccess = (respon)=>({
+    type:actionTypes.UPDATE_MARKDOWN_SUCCESS,
+    res:respon
 })

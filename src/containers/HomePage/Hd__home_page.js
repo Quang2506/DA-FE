@@ -1,11 +1,8 @@
-import '../../scss/HomeHeader.scss'
+
 import React from 'react';
-//import { Redirect } from 'react-router-dom';
-//import { Input } from 'reactstrap';
 import {FormattedMessage} from "react-intl"
 import { connect } from 'react-redux';
-// import { languages } from '../../utils/constant';
-//import { changeLanguageApp } from '../../store/actions/appActions';
+import'../../scss/Home/headerHome.scss'
 
 const HeaderHomePage = ()=> {
 

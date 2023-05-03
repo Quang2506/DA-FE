@@ -1,5 +1,5 @@
 import React from "react";
-import '../../scss/Footer.scss'
+import '../../scss/Home/Footer.scss'
 import Img1 from '../../assets/HomeFooter/bo-cong-thuong.svg'
 import Img2 from '../../assets/HomeFooter/facebook-square.svg'
 import Img3 from '../../assets/HomeFooter/youtube-square.svg'

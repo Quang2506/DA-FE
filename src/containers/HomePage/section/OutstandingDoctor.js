@@ -1,91 +1,110 @@
-//import '../../scss/HomeHeader.scss'
-import React from 'react';
-//import { Redirect } from 'react-router-dom';
-//import { Input } from 'reactstrap';
-//import {FormattedMessage} from "react-intl"
+
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-//import Img1 from '../../../assets/specialty_Img/120331-co-xuong-khop.jpg'
-// import { languages } from '../../utils/constant';
-//import { changeLanguageApp } from '../../store/actions/appActions';
-import '../../../scss/outstandingDoctor.scss'
+import '../../../scss/Home/Section/outstandingDoctor.scss'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const OutstandingDoctor = ()=> {
+import { useHistory } from 'react-router-dom'
+import '../../../scss/Home/Patient/Doctor/DetailDoctor.scss'
 
+
+const OutstandingDoctor = (props) => {
+
+    let history = useHistory()
+    const [dataDoctor, setdataDoctor] = useState([])
     const settings = {
-        dost : true,
-        isfinite :false,
-        speed:500,
-        slidesToShow:4,
-        slidesToScroll:1,
-       // nextArrow:<SampleNextArrow/>
-       width:260
+        dost: true,
+        isfinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        // nextArrow:<SampleNextArrow/>
+        width: 260
     }
+
+    //console.log(props.doctorTop)
+    const getImageDoctor = async () => {
+        const doctor = await props.doctorTop
+        setdataDoctor(doctor)
+
+
+
+
+    }
+    useEffect(() => {
+
+        getImageDoctor()
+
+    }, [props.doctorTop])
+
+    const handleViewDoctor = async(data)=>{
     
+      
+        history.push(`/detail-doctor/${data.id}`)
+    }
+    return (
+        <div className='OutstandingDoctor' >
+            <div className='OutstandingDoctor-title' style={{ paddingTop: '30px', height: '30px', width: '80%', margin: 'auto', display: 'flex' }}>
+                <h3>Bác sĩ nổi bật tuần qua</h3>
 
-        return (
-            <div className='OutstandingDoctor' >
-                   <div className='OutstandingDoctor-title' style={{paddingTop:'30px',height:'30px',width:'80%',margin:'auto',display:'flex'}}>
-                    <h3>Bác sĩ nổi bật tuần qua</h3>
-                  
-                </div>
-               <div className='OutstandingDoctor-conten'>
-              
-            
-                  <Slider className='OutstandingDoctor-slider' {...settings}>
-                  
-                    <div className='OutstandingDoctor-img'>
-                    <div className='backgroundImg-doctor'></div>
-                    <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-                    <div className='OutstandingDoctor-img'>
-                    <div className='backgroundImg-doctor'></div>
-                    <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-                    <div className='OutstandingDoctor-img'>
-                    <div className='backgroundImg-doctor'></div>
-                     <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-                    <div className='OutstandingDoctor-img'>
-                    <div className='backgroundImg-doctor'></div>
-                     <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-                    <div className='OutstandingDoctor-img'>
-                    <div className='backgroundImg-doctor'></div>
-                     <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-                    <div className='OutstandingDoctor-img'   >
-                    <div className='backgroundImg-doctor'></div>
-                     <a href='#'>Thạc sĩ, Bác sĩ Hứa Thúy Vy</a>
-                    <p>Vô sinh , hiếm muộn</p>
-                    </div>
-
-                </Slider>
-               
-               </div>
-             
             </div>
-        );
- 
+            <div className='OutstandingDoctor-conten'>
+
+
+                <Slider className='OutstandingDoctor-slider' {...settings}>
+                    {
+                        dataDoctor ? dataDoctor.map((item, index) => {
+                            let imageBase64 = ''
+                            if (item.image) {
+                                imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+
+                                return (
+                                    <div className='OutstandingDoctor-img' key={index} onClick={ ()=>handleViewDoctor(item)} >
+                                        <div className='backgroundImg-doctor' 
+                                        style={{ backgroundImage: `url(${imageBase64})` }}
+                                        ></div>
+                                        <a href='#'>{
+                                            item.positionId && item.positionId === 'P0' ? (<span>Bác sĩ</span>) : ''
+                                        }
+                                            {
+                                                item.positionId && item.positionId === 'P1' ? (<span>Thạc sĩ</span>) : ''
+                                            }
+                                            {
+                                                item.positionId && item.positionId === 'P2' ? (<span>Tiến sĩ</span>) : ''
+                                            }
+                                            {
+                                                item.positionId && item.positionId === 'P3' ? (<span>Phó Giáo Sư</span>) : ''
+                                            }
+                                            {
+                                                item.positionId && item.positionId === 'P4' ? (<span>Giáo Sư</span>) : ''
+                                            }
+                                            , Bác sĩ {item.lastName || item.firsName?(<><span>{item.lastName}</span> <span>{item.firstName}</span></>):''}</a>
+                                        <p>Vô sinh , hiếm muộn</p>
+                                    </div>
+                                )
+                            }
+                        }) : ''
+                    }
+                </Slider>
+
+            </div>
+
+        </div>
+    );
+
 
 }
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn,
-        lang: state.app.language,
+   
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        // changeLanguageAppRedux :(language) =>dispatch(changeLanguageApp(language))
+        
     };
 };
 

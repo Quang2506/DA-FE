@@ -1,0 +1,21 @@
+.container {
+    margin: auto;
+    width: 86%;
+
+    .img-detailDoctor {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        margin: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+    }
+
+    .des-doctor {
+        color: #555;
+        font-size: 17px;
+    }
+
+}

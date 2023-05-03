@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from "../../store/actions";
-import Navigator from '../../components/Navigator';
+import * as actions from "../../../store/actions";
+import Navigator from '../../../components/Navigator';
 import { adminMenu } from './menuApp';
 import './Header.scss';
 const Header = (props) => {
@@ -10,7 +10,7 @@ const Header = (props) => {
  
     const { processLogout, userInfo } = props;
 
-console.log('fdfd',userInfo)
+
     return (
         <div className="header-container">
             {/* thanh navigator */}

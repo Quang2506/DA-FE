@@ -1,14 +1,12 @@
-//import '../../scss/HomeHeader.scss'
+
 import React from 'react';
-//import { Redirect } from 'react-router-dom';
-//import { Input } from 'reactstrap';
 //import {FormattedMessage} from "react-intl"
 import { connect } from 'react-redux';
 import Img1 from '../../../assets/specialty_Img/120331-co-xuong-khop.jpg'
 // import { languages } from '../../utils/constant';
 //import { changeLanguageApp } from '../../store/actions/appActions';
 
-import '../../../scss/Specialty.scss'
+import '../../../scss/Home/Section/Specialty.scss'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

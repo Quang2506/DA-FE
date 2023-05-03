@@ -17,29 +17,12 @@ import HomePage from './HomePage/HomePage';
 //import Header from './Header/Header';
 import System from '../routes/System';
 import CustomScrollbars from '../components/CustomScrollbars';
-
+import DetailDoctor from './Patient/Doctor/detailDoctor';
 import { CustomToastCloseButton } from '../components/CustomToast';
 
 class App extends Component {
 
-    // handlePersistorState = () => {
-    //     const { persistor } = this.props;
-    //     let { bootstrapped } = persistor.getState();
-    //     if (bootstrapped) {
-    //         if (this.props.onBeforeLift) {
-    //             Promise.resolve(this.props.onBeforeLift())
-    //                 .then(() => this.setState({ bootstrapped: true }))
-    //                 .catch(() => this.setState({ bootstrapped: true }));
-    //         } else {
-    //             this.setState({ bootstrapped: true });
-    //         }
-    //     }
-    // };
-
-    // componentDidMount() {
-    //     this.handlePersistorState();
-    // }
-
+   
     render() {
         return (
             <Fragment>
@@ -55,6 +38,7 @@ class App extends Component {
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={path.HOMEPAGE} component={HomePage} />
+                                <Route path={path.DETAIL_DOCTOR} component={DetailDoctor}/>
                             </Switch>
                             </CustomScrollbars>
                         </div>

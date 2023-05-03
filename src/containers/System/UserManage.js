@@ -1,7 +1,7 @@
 import React, { useEffect,useState} from 'react';
 //import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import '../../scss/UserManage.scss';
+import '../../scss/System/UserManage.scss';
 import '../../scss/cutom.scss';
 import {
     getAllUser,

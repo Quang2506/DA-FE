@@ -10,7 +10,7 @@ import Img1 from '../../../assets/HandBool/143055-boc-rang-su-gia-bao-nhieu.jpg'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../../../scss/HandBool.scss'
+import '../../../scss/Home/Section/HandBool.scss'
 const HandBool = ()=> {
 
     const settings = {

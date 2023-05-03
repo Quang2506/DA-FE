@@ -5,7 +5,7 @@ export const adminMenu = [
          menus: [
 
             {
-               name: 'menu.admin.manage-doctor',link:'/system/user-manage'
+               name: 'menu.admin.manage-doctor',link:'/system/doctor-manager'
                
             },
             {
