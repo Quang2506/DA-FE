@@ -4,22 +4,16 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
-
-
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
-
 import { path } from '../utils'
-
 import Home from '../routes/Home';
-// import Login from '../routes/Login';
 import Login from './Auth/Login';
 import HomePage from './HomePage/HomePage';
-//import Header from './Header/Header';
 import System from '../routes/System';
 import CustomScrollbars from '../components/CustomScrollbars';
 import DetailDoctor from './Patient/Doctor/detailDoctor';
 import { CustomToastCloseButton } from '../components/CustomToast';
-
+import VerifyEmail from './Patient/VerifyEmail/verifyEmail';
 class App extends Component {
 
    
@@ -39,6 +33,7 @@ class App extends Component {
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                                 <Route path={path.DETAIL_DOCTOR} component={DetailDoctor}/>
+                                <Route path={ path.VERIFY_EMAIL_BOOKING} component={VerifyEmail}/>
                             </Switch>
                             </CustomScrollbars>
                         </div>

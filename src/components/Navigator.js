@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 
 import './Navigator.scss';
 
-class MenuGroup extends Component {
+const MenuGroup =(props)=> {
 
-    render() {
-        const { name, children } = this.props;
+   
+        const { name, children } = props;
         return (
             <li className="menu-group">
                 <div className="menu-group-name">
@@ -19,7 +19,7 @@ class MenuGroup extends Component {
                 </ul>
             </li>
         );
-    }
+    
 }
 
 class Menu extends Component {

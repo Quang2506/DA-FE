@@ -107,7 +107,12 @@ const adminReducer = (state = initialState, action) => {
                 return{
                     ...stateDataDetailDoctor
                 }
-          
+            case actionTypes.GET_PRICE_ALLCODES:
+                let priceState= {...state}
+                priceState.priceAllCode=action.data
+                return{
+                    priceState
+                }
         default:
             return state;
     }

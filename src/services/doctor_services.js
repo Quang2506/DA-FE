@@ -19,3 +19,13 @@ export const  getDoctorDetailById = (id) =>{
 export const updateDetailMarkdownApi = (data)=>{
     return axios.put(`/api/edit-markdown`,data)
 }
+export const createscheduleDoctorApi = (data)=>{
+    console.log(data)
+    return axios.post("/api/creat-schedule",data)
+}
+export const getScheduleDoctorApi = (idDoctor,date)=>{
+    return axios.get(`/api/get-schedule-doctor?idDoctor=${idDoctor}&&date=${date}`)
+}
+export const createInforDoctorApi = (data)=>{
+    return axios.post("/api/create-doctor-infor",data)
+}

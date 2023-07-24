@@ -9,7 +9,7 @@ export const adminMenu = [
                
             },
             {
-                name:'menu.admin.manage-admin',link:'#'
+                name:'menu.admin.doctor-schedule',link:'/system/doctor-schedule'
             },
             {
                 name:'menu.admin.crud',link:'/system/user-manage'
@@ -37,7 +37,7 @@ export const adminMenu = [
          menus: [
 
             {
-               name: 'menu.admin.manage-specialty',link:'/system/specialty'
+               name: 'menu.admin.manage-specialty',link:'/system/specialty-manager'
                
             },
            
@@ -56,3 +56,22 @@ export const adminMenu = [
         ]
     },
 ];
+export const doctorMenu = [
+    { 
+        //Quản lý người dùng
+        name: 'menu.admin.manage-user',
+         menus: [
+
+          
+            {
+                name:'menu.admin.doctor-schedule',link:'/system/user-redux'
+            },
+         
+        ]
+    },
+    
+]
+
+
+
+

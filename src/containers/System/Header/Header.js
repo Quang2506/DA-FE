@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 import * as actions from "../../../store/actions";
 import Navigator from '../../../components/Navigator';
-import { adminMenu } from './menuApp';
+import { adminMenu,doctorMenu } from './menuApp';
 import './Header.scss';
+import { checkAuth } from '../../../utils';
 const Header = (props) => {
 
  
@@ -15,7 +16,9 @@ const Header = (props) => {
         <div className="header-container">
             {/* thanh navigator */}
             <div className="header-tabs-container">
-                <Navigator menus={adminMenu} />
+                {userInfo&&userInfo.roleId===checkAuth.ADMIN?(<Navigator menus={adminMenu} />):''}
+                {userInfo&&userInfo.roleId===checkAuth.DOCTOR?(<Navigator menus={doctorMenu} />):''}
+                
             </div>
           
             {userInfo.email !== null && userInfo.email !== "" ? <div className="i4-UserLogin"><span>Xin Chào:  </span><span>{userInfo.email}</span></div>:''  }

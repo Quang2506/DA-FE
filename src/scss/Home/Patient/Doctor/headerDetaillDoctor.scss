@@ -3,3 +3,14 @@
 //     width: 100%;
 //     background-color:#45c3d2 ;
 // }
+.ant-select-selector{
+   border: none !important;
+    border-bottom: 3px solid blue !important;
+    .ant-select-selection-item{
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+svg{margin-bottom: 10px;}
+
+

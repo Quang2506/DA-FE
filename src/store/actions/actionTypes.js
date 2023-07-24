@@ -46,7 +46,8 @@ const actionTypes = Object.freeze({
    //Detail 
    ALERT_RES_DETAIL_DOCTOR:" ALERT_RES_DETAIL_DOCTOR",
    GET_DETAIL_DOCTOR_BY_ID:'GET_DETAIL_DOCTOR_BY_ID',
-  
+  //Price
+  GET_PRICE_ALLCODES:" GET_PRICE_ALLCODES"
    
 })
 

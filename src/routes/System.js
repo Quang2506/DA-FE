@@ -5,28 +5,32 @@ import UserManage from '../containers/System/UserManage';
 import Header from '../containers/System/Header/Header';
 import UserRedux from '../containers/System/UserRedux';
 import ManagerDoctor from '../containers/System/ManagerDoctor';
+import ManagerSchedule from '../containers/System/ManagerSchedule';
+import Specialty from '../containers/System/managerSpecialties'
 //import RegisterPackageGroupOrAcc from '../containers/System/RegisterPackageGroupOrAcc';
 
-class System extends Component {
-    render() {
-        const { systemMenuPath } = this.props;
+const System =(props)=> {
+    
+        const { systemMenuPath } = props;
         //console.log('aa',systemMenuPath,this.props)
         return (
             <>
-             {this.props.isLoggedIn && <Header />} 
+             {props.isLoggedIn && <Header />} 
             <div className="system-container">
                 <div className="system-list">
                     <Switch>
                         <Route path="/system/user-manager" component={UserManage} />
                          <Route path="/system/user-redux" component={UserRedux} /> 
                          <Route path="/system/doctor-manager" component={ManagerDoctor}/>
+                        <Route path="/system/doctor-schedule" component={ManagerSchedule}/>
+                        <Route path = "/system/specialty-manager" component= {Specialty}/>
                          <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                     </Switch>
                 </div>
             </div>
             </>
         );
-    }
+    
 }
 
 const mapStateToProps = state => {

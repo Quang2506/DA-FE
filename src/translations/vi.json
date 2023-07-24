@@ -24,8 +24,13 @@
             "specialty":"Specialty",
             "manage-specialty":"Manage Specialty",
             "handBook":"HandBook",
-            "manage-handBook":"Manage HandBook"
+            "manage-handBook":"Manage HandBook",
+            "doctor-schedule"  :"Quản lý kế hoạch khám bệnh"
         }
+       
+    },
+    "doctor":{
+        "doctor-schedule"  :"Quản lý kế hoạch khám bệnh"  
     },
   
     "homeheader":{

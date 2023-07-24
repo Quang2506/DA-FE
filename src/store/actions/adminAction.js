@@ -21,6 +21,7 @@ import {
 
 
 
+
 export const fetchGenderStart = () => {
   
    return async (dispatch,getState)=>{
@@ -95,6 +96,16 @@ export const fetchRoleStart = () =>{
         }
     }
 }
+export const fetchTimeAllCode = () =>{
+    return async (dispatch,getState) =>{
+        try{
+            let res = await getAllCodes("TIME")
+            return res
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
 
 export const fetchRoleSuccess = (data) =>({
   type:actionTypes.ADD_ROLE_SUCCESS,
@@ -103,6 +114,23 @@ export const fetchRoleSuccess = (data) =>({
 export const fetchRoleFaided=()=>({
     type:actionTypes.ADD_ROLE_FAiDED
 })
+
+export const fetchPriceAllCode = ()=>{
+    return async(dispatch,getState) =>{
+        try{
+            let res = await getAllCodes("PRICE")
+            
+            if(res){
+                dispatch({
+                    type:actionTypes.GET_PRICE_ALLCODES,
+                    data:res.data
+                })
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
 
 export const createNewUser = (data)=>{
    return async (dispatch,getState) =>{
@@ -139,10 +167,6 @@ export const fetchAllUserStart = () =>{
         try{
           
             let res = await  getAllUser('ALL')
-            //let doctor = await getTopDoctor('1')
-           // console.log("topDocter",doctor)
-            
-          
             if(res){
               
                dispatch(fetchAllUserSuccess(res.user.reverse()))
@@ -295,7 +319,3 @@ export const updateDetailMarkdown = (data)=>{
         }
     }
 }
-export const UpdateDetailMarkdownSuccess = (respon)=>({
-    type:actionTypes.UPDATE_MARKDOWN_SUCCESS,
-    res:respon
-})
